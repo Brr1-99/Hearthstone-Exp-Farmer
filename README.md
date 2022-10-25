@@ -14,7 +14,7 @@ Working steps:
 
 - First the app asks you if you want to start the process.
 
-- Then it opens the hearthstone app. ##Make sure your mouse remains on your main screen##
+- Then it opens the hearthstone app. **Make sure your mouse remains on your main screen!!**
     Pyautogui module is limited to the main screen of the device 😥.
 
 - Next you enter the mercenaries mode and play the easiest task. You set all your attacks but do not press the 'Ready' button.
