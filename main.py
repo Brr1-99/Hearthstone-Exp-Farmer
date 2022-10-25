@@ -14,12 +14,7 @@ def open_hearthstone() -> None:
 
 def process_exists(process_name):
     progs = str(subprocess.check_output('tasklist'))
-    if process_name in progs:
-        return True
-    else:
-        return False
-
-global go 
+    return process_name in progs
 
 go = True
 stop = False 
