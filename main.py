@@ -5,7 +5,7 @@ import time
 screenWidth, screenHeight = pyautogui.size()
 
 def open_hearthstone() -> None:
-    subprocess.Popen(['C:\Program Files (x86)\Battle.net\Battle.net Launcher.exe'])
+    subprocess.Popen(['C:/Program Files (x86)/Battle.net/Battle.net Launcher.exe'])
     pyautogui.sleep(10)
     pyautogui.click(x=screenWidth/6, y=screenHeight*6/7)
     # The following lines will click the mercenaries button for you
@@ -16,15 +16,18 @@ def process_exists(process_name):
     progs = str(subprocess.check_output('tasklist'))
     return process_name in progs
 
-go = True
-stop = False 
+go = 'Yes'
+stop = 'No' 
 
-while go:
-    go = pyautogui.confirm(text='Hearthstone is gonna open soon. Want to proceed with it?', title='', buttons=[True, False])
+while True:
+    go = pyautogui.confirm(text='Hearthstone is gonna open soon. Want to proceed with it?', title='', buttons=['Yes', 'No'])
+    if go == 'No':
+        break
     open_hearthstone()
+    time.sleep(5)
     while process_exists('Hearthstone.exe'):
         time.sleep(5)
-    stop = pyautogui.confirm(text='The timer will start now. Do you want to finish here?', title='', buttons=[True, False])
-    if stop:
+    stop = pyautogui.confirm(text='The timer will start now. Do you want to finish here?', title='', buttons=['Yes', 'No'])
+    if stop == 'Yes':
         break
     time.sleep(60*28)      
