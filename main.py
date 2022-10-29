@@ -12,7 +12,7 @@ def open_hearthstone() -> None:
     # pyautogui.sleep(20)
     # pyautogui.leftClick(x=screenWidth/2, y=screenHeight*4/9)
 
-def process_exists(process_name):
+def process_exists(process_name: str) -> bool:
     progs = str(subprocess.check_output('tasklist'))
     return process_name in progs
 
