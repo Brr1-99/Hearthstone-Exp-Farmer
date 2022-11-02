@@ -1,6 +1,9 @@
 import pyautogui
 import subprocess
 import time
+import datetime
+
+stoptime = 28
 
 screenWidth, screenHeight = pyautogui.size()
 
@@ -30,4 +33,7 @@ while True:
     stop = pyautogui.confirm(text='The timer will start now. Do you want to finish here?', title='', buttons=['Yes', 'No'])
     if stop == 'Yes':
         break
-    time.sleep(60*28)      
+    now = datetime.datetime.now()
+    end = now + datetime.timedelta(minutes=stoptime)
+    pyautogui.alert(text=f'The timer will end at {end.strftime("%H:%M:%S")} in {stoptime} minutes', title='Timer has started', button='OK')
+    time.sleep(stoptime*60)      
