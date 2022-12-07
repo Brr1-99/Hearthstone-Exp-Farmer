@@ -36,4 +36,5 @@ while True:
     now = datetime.datetime.now()
     end = now + datetime.timedelta(minutes=stoptime)
     pyautogui.alert(text=f'The timer will end at {end.strftime("%H:%M:%S")} in {stoptime} minutes', title='Timer has started', button='OK')
-    time.sleep(stoptime*60)      
+    print(f'The timer will end at {end.strftime("%H:%M:%S")}')
+    time.sleep(stoptime*60)     
